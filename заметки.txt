@@ -1,0 +1,35 @@
+Добавление страниц с переводом.
+SiteConroller - добавляем фунцию где Authors - название страницы
+	public function actionAuthors()
+    {
+        return $this->render('authors');
+    }
+	
+В папку views/site/ добавляем файл authors.php
+
+
+Настройка меню
+views/layouts/main.php
+
+
+Error 1845: Element 'journal': No matching global declaration available for the validation root. in /var/www/vestnik20/htdocs/web/uploads/1471531122.xml on line 2
+
+old_type DOMDocument::schemaValidate() Generated Errors!
+Error 1845: Element 'journals': No matching global declaration available for the validation root. in /var/www/vestnik20/htdocs/web/uploads/1471531154.xml on line 2 
+opercard => 
+journal => 
+ФГБОУ ВПО МГСУ|ГУДКОВ ПК1.2.ФГБОУ ВПО МГСУ|ГУДКОВ ПК
+
+
+
+
+
+
+http://test.bez-sso.ru/ru/pages/manager/
+
+
+для разворачиванию меню по клику - 
+убрать в web/site.css:
+.dropdown:hover > .dropdown-menu { 
+    display: block; 
+} 

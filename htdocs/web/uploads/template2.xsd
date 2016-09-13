@@ -1,0 +1,170 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="journals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="opercard">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="operator"/>
+              <xs:element type="xs:string" name="date"/>
+              <xs:element type="xs:byte" name="cntArticle"/>
+              <xs:element type="xs:short" name="cntnode"/>
+              <xs:element type="xs:int" name="cs"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="journal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="journalInfo" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="jrntitle"/>
+                    <xs:element type="xs:string" name="publ"/>
+                    <xs:element type="xs:string" name="placepubl"/>
+                    <xs:element type="xs:string" name="loc"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="lang" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="issue">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element type="xs:string" name="issn"/>
+                    <xs:element type="xs:int" name="jrncode"/>
+                    <xs:element type="xs:byte" name="jnumUni"/>
+                    <xs:element type="xs:short" name="jdateUni"/>
+                    <xs:element type="xs:string" name="pages"/>
+                    <xs:element name="jseparate">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="segtitle" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="article">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:byte" name="fpageart" minOccurs="0"/>
+                          <xs:element type="xs:byte" name="lpageart" minOccurs="0"/>
+                          <xs:element name="authors" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="author">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:byte" name="correspondent"/>
+                                      <xs:element name="individInfo" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="surname"/>
+                                            <xs:element type="xs:string" name="fname"/>
+                                            <xs:element type="xs:string" name="auadr"/>
+                                            <xs:element type="xs:string" name="auemail"/>
+                                            <xs:element type="xs:string" name="auwork"/>
+                                            <xs:element type="xs:string" name="auinf"/>
+                                          </xs:sequence>
+                                          <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:byte" name="num"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="arttitles" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="arttitle" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="abstracts" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="abstract" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="arttype" minOccurs="0"/>
+                          <xs:element name="text" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="lang"/>
+                                  <xs:attribute type="xs:string" name="arttype"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:float" name="udk" minOccurs="0"/>
+                          <xs:element name="keywords" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="kwdGroup" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="keyword" maxOccurs="unbounded" minOccurs="0"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="biblist" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="blistpart" maxOccurs="unbounded" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="fpdf" minOccurs="0"/>
+                          <xs:element name="segtitle" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="lang" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
