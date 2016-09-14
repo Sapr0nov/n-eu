@@ -63,7 +63,7 @@ if (Yii::$app->user->isGuest) {
 						['label' => 'Подписка', 'url' => (['/authors'])],
 						['label' => 'Контакты', 'url' => (['/contacts'])],
 						['label' => 'Предоставить статью в редакцию', 'items' => [
-							['label' => 'email', 'url'=>(['mailto://submission@n-eu.ru']),],
+						('<li><a href="mailto:submission@n-eu.ru">e-mail</a></li>'),
 							],
 						],
 					],
@@ -97,7 +97,7 @@ if (Yii::$app->user->isGuest) {
 						['label' => 'Контакты', 'url' => (['/contacts'])],
 						['label' => 'Предоставить статью в редакцию', 'items' => [
 							['label' => 'Open Journal System', 'url' => (['/status/create'])],
-							['label' => 'email', 'url' => (['/test'])],
+							('<li><a href="mailto:submission@n-eu.ru">e-mail</a></li>'),
 							],
 						],
 					],
@@ -122,6 +122,10 @@ if (Yii::$app->user->isGuest) {
 
 	
     <?php 
+	$arr = Yii::$app->params['adminRole']; // задается в config/params
+	if (in_array(Yii::$app->user->getId(),$arr)) {
+		echo "administrator";
+	}
 if (!Yii::$app->user->isGuest) {
  // пользовательское меню
     NavBar::begin([

@@ -143,7 +143,7 @@ $config = [
 				'/confirmEmail' => '/user/user/confirm-email',
 				'/unbind/<id:[\w\-]+>' => '/user/auth/unbind',
 				'/oauth/<authclient:[\w\-]+>' => '/user/auth/index',  
-				'pages/<page:[\w-]+>' => 'pages/default/index',  // для модуля pages
+
 				'/about' => '/site/about', // страницы - TODO вынести в htaccess ?
 				'/authors' => '/site/authors',
 				'/listissue' => '/site/listissue',
